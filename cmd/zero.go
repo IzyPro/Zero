@@ -59,6 +59,9 @@ func Divide(divide string, by string, shouldRoundUp bool) (e error, result strin
 	if err != nil {
 		return fmt.Errorf("second value is not a number"), ""
 	}
+	if num2 == 0 {
+		return fmt.Errorf("cannot divide per zero"), ""
+	}
 	if shouldRoundUp {
 		return nil, fmt.Sprintf("%.2f", num1/num2)
 	}
